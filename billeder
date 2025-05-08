@@ -1,0 +1,21 @@
+def refresh_picture():
+    file_list = os.listdir("/home/Jannik/Desktop/Programmering2/U8_flask/static/PC/")
+    pictures = sorted(file_list, reverse=True)
+    plante_billed = pictures[0]
+    return plante_billed
+
+
+
+
+
+    def take_picture():
+    if cam_in_use == True:   # check to prevent errors with function.
+        return
+
+    cam_in_use = True
+    day = dt.now()
+    pic_name = (f"{day.strftime('%d%m%y_%H%M%S')}.jpg")
+    cam = None
+
+    
+    import os og datetime

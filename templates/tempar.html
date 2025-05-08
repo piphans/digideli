@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}temp{% endblock %}
+{% block content %}
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="crossorigin="anonymous"></script>
+</head>
+<body style="background-image: url(/static/4.jpg); background-size: cover;">
+    <style>
+        h4 {text-align: center; margin-top: 100px; font-family: 'Courier New', Courier, monospace; font-size: 30px; color: ghostwhite;}
+    </style>
+    <h4>temperature - <span id="temperatur"></span>&deg; <br/><br/>
+        humidity - <span id="fugtighed"></span>&percnt; </h4>
+    <script>
+    var socket = io();
+    socket.emit('hent_temp')
+    socket.on('temp', function(data) {
+        console.log( data['valid']  )
+        if (data != 'None' && data['valid'] == true) {
+            document.getElementById('temperatur').innerText= data['temp_c']
+            document.getElementById('fugtighed').innerText= data['humidity']
+        }
+        socket.emit('hent_temp')
+    })
+    </script>
+</body>
+
+
+{% endblock %}
+
+    

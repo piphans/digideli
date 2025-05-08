@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}weather{% endblock %}
+{% block content %}
+<body style="background-image: url(/static/4.jpg); background-size: cover;">   
+    <style>
+        h4 {text-align: center; margin-top: 100px; margin-bottom: 50px; font-family: 'Courier New', Courier, monospace; font-size: 30px; color: ghostwhite;}
+        .weather-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;}
+        .weatherwidget-io {width: 313px;}
+    </style>
+   
+    <h4>weather</h4>
+
+    <div class="weather-container">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/57d4610d00/hjorring/" data-label_2="hjørring" data-font="Courier New" data-icons="Climacons Animated" data-theme="weather_one" >hjørring</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/62d04129d68/yakutsk/" data-label_2="yakutsk" data-font="Courier New" data-icons="Climacons Animated" data-theme="weather_one" >yakutsk</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n75d25n0d07/antarctica/" data-label_2="antarctica" data-font="Courier New" data-icons="Climacons Animated" data-theme="weather_one">antarctica</a>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/n51d80n59d52/falkland-islands-islas-malvinas/" data-label_2="falkland islands" data-font="Courier New" data-icons="Climacons Animated" data-theme="weather_one" >falkland islands</a>
+       
+    </div>
+
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+   </body>
+
+
+{% endblock %}
+

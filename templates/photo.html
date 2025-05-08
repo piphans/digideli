@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Photo{% endblock %}
+{% block content %}
+<body style="background-image: url(/static/4.jpg); background-size: cover;">
+    <style>
+        h4 {text-align: center; margin-top: 100px; font-family: 'Courier New', Courier, monospace; font-size: 30px; color: ghostwhite;}
+        div {text-align: center; margin-top: 5%;}
+        button{margin-top: 3%;}
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .image-container img {
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 10px;
+        }
+    </style>
+    <div class="caption">
+        <h4>smile!</h4></br>
+        <div class="image-container">
+            {% for pic in pics %}
+                <img src="{{ url_for('static', filename='snaps/' + pic) }}" class="img-rounded">
+            {% endfor %}
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-light"><a href="/photo">snap!</a></button>
+    </div>
+</body>
+{% endblock %}
